@@ -21,3 +21,15 @@ let heartIcons = document.querySelectorAll(".fa-heart");
       icon.classList.toggle("text-red-500");
     };
   });
+
+  let copyButtons = document.querySelectorAll("button i.fa-copy");
+  copyButtons.forEach(function (icon) {
+    let btn = icon.parentElement;
+    btn.onclick = function () {
+      let number = btn.parentElement.querySelector("h1.text-2xl").textContent;
+      navigator.clipboard.writeText(number);
+      alert("Number " + number + " copied!");
+      copyCount++;
+      copyCountEl.textContent = copyCount + " Copy";
+    };
+  });
