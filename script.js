@@ -11,4 +11,13 @@ let heartCount = 0;
   let historyList = document.createElement("ul");
   historyCol.appendChild(historyList);
 
-  
+let heartIcons = document.querySelectorAll(".fa-heart");
+  heartIcons.forEach(function (icon) {
+    icon.onclick = function () {
+      heartCount++;
+      heartCountEl.textContent = heartCount;
+      icon.classList.toggle("fa-solid");
+      icon.classList.toggle("fa-regular");
+      icon.classList.toggle("text-red-500");
+    };
+  });
