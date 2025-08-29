@@ -56,3 +56,7 @@ let heartIcons = document.querySelectorAll(".fa-heart");
       historyList.appendChild(li);
     };
   });
+
+   clearBtn.onclick = function () {
+    historyList.innerHTML = "";
+  };
