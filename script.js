@@ -33,3 +33,26 @@ let heartIcons = document.querySelectorAll(".fa-heart");
       copyCountEl.textContent = copyCount + " Copy";
     };
   });
+
+  let callButtons = document.querySelectorAll("button.btn-success");
+  callButtons.forEach(function (btn) {
+    btn.onclick = function () {
+      let card = btn.parentElement;
+      let serviceName = card.querySelector("h1.font-bold").textContent;
+      let number = card.querySelector("h1.text-2xl").textContent;
+
+      if (coinCount < 20) {
+        alert("Not enough coins!");
+        return;
+      }
+
+      coinCount -= 20;
+      coinCountEl.textContent = coinCount;
+
+      alert("Calling " + serviceName + " at " + number);
+
+      let li = document.createElement("li");
+      li.textContent = serviceName + " - " + number + " - " + new Date().toLocaleTimeString();
+      historyList.appendChild(li);
+    };
+  });
